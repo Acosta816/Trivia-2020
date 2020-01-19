@@ -1,7 +1,7 @@
 'use strict';
 
 //------------------------------------------------------------Setting up our globally tracked variables that our functions will access and alter
-let questionNumber = 0;
+let questionNumber = 0; 
 let score = 0;
 //---------------------------------------------------------------
 
@@ -15,23 +15,40 @@ function renderQuestion(){
     })
 }
 
+function nextQuestion(){
+    $('.js-next-button').on('click', e=> {
+        console.log('Next button clicked');
+        questionNumber ++;
+        $('.js-next-button').hide();
+        $('.js-question-answer-form').html(generateQuestion());
+        $('.question-number-display').text(questionNumber+1);
+    })
+}
+
 function displayFeedback(userChoice) {
     let correct = STORE[questionNumber].correctAnswer;
     let answerView = "";
-    if(userChoice === correct){
-        score ++;
-        answerView = `<div>
-                        <img src="${STORE[questionNumber].icon}" width="300px">
-                        <h2>Great Job, You Got it RIGHT!</h2>
-                        <p>correct answer: ${correct}</p>
-                      </div>`;
-    } else {
-        answerView = `<div>
-                        <img src="${STORE[questionNumber].icon}" width="300px">
-                        <h2>THATS WRONG,... READ A BOOK!</h2>
-                        <p>correct answer: ${correct}</p>
-                      </div>`
+    if(STORE[questionNumber].type === 'audio'){
+        answerView = STORE[questionNumber].answerHTML(userChoice,questionNumber);
+    } else if(STORE[questionNumber].type === 'video'){
+        answerView = STORE[questionNumber].answerHTML(userChoice,questionNumber);
+    } else if(STORE[questionNumber].type === 'word'){
+        answerView = STORE[questionNumber].answerHTML(userChoice,questionNumber);
     }
+    // if(userChoice === correct){
+    //     score ++;
+    //     answerView = `<div>
+    //                     <img src="${STORE[questionNumber].icon}" width="300px">
+    //                     <h2>Great Job, You Got it RIGHT!</h2>
+    //                     <p>correct answer: ${correct}</p>
+    //                   </div>`;
+    // } else {
+    //     answerView = `<div>
+    //                     <img src="${STORE[questionNumber].icon}" width="300px">
+    //                     <h2>THATS WRONG,... READ A BOOK!</h2>
+    //                     <p>correct answer: ${correct}</p>
+    //                   </div>`
+    // }
     $('.js-next-button').show(); //unhide the NEXT button (this will still run regardless so be careful with this line)
     return answerView; 
 }
@@ -48,18 +65,14 @@ function handleAnswerSubmit(){
     })
 }
 
-function doSomething(){
-
-}
-
 function generateQuestion(){
     if(questionNumber < STORE.length){
 
         if(STORE[questionNumber].type === 'audio'){         //----------------------check if it's an AUDIO question
             return `
             <div class="question-${questionNumber} window">
-            <img class = "animal-picture" src="${STORE[questionNumber].mystery}">
-            <h2>${STORE[questionNumber].question}</h2> 
+            <img class="animal-picture" src="${STORE[questionNumber].mystery}" width="100%" loop>
+            <h2>🔊${STORE[questionNumber].question}</h2> 
             
             <audio src="${STORE[questionNumber].audio}" controls volume="0.2" />
     
@@ -97,7 +110,7 @@ function generateQuestion(){
         else if(STORE[questionNumber].type === 'word'){                  //---------------check if it's an WORD question
             return `
             <div class="question-${questionNumber} window">
-            <img class = "animal-picture" src="${STORE[questionNumber].mystery}">
+            <img width="100%" class="animal-picture" src="${STORE[questionNumber].mystery}">
             <h2>${STORE[questionNumber].question}</h2>  
 
             <form>
@@ -131,10 +144,10 @@ function generateQuestion(){
             </div>`
         }
 
-        else if(STORE[questionNumber].type === 'video'){                  //---------------check if it's an WORD question
+        else if(STORE[questionNumber].type === 'video'){                  //---------------check if it's an VIDEO question
             return `
             <div class="question-${questionNumber} window">
-            <video src="${STORE[questionNumber].videoCut} controls">
+            <video width="100%" src="${STORE[questionNumber].videoCut}" controls autoplay></video>
             <h2>${STORE[questionNumber].question}</h2>  
 
             <form>
@@ -174,10 +187,12 @@ function generateQuestion(){
 
 } //-----------------------------------------------------------------------------------------END of generateQuestion()
 
-function handleQuiz(){ //------------------ONLY LOAD EVENT-LISTENERS IN HERE!!!!!!!!!!----------
+
+function handleQuiz(){//-------------------------------------ONLY LOAD EVENT-LISTENERS IN HERE!!!!!!!!!!-----------------------
     console.log('page has loaded, DOM is ready...');
     renderQuestion();
     handleAnswerSubmit();
+    nextQuestion();
 }
 
 
