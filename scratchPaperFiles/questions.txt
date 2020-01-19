@@ -1,0 +1,6 @@
+Q: What is Sonic the Hedgehog's favorite food?
+Possibilities: ["blue milk", "tornado milk shakes", "crunchy rolls", "Chilidogs"]
+A: Chilidogs, now that's what I call "fast food"
+
+Q: What is this sound from:
+    Press on the speaker for sound to play

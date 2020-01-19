@@ -1,0 +1,81 @@
+
+
+html {
+    background-image: url("https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+body {
+    padding: 40px;
+    border: solid rgb(140, 0, 255) 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    border: solid rgb(255, 0, 0) 1px;
+}
+
+header {
+    border: solid blue 1px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+
+header>ul {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+.hidden {
+    display: none ;
+}
+
+
+
+.js-quiz-start-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    border: solid rgb(81, 255, 0) 1px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.js-start-button {
+    width: fit-content;
+}
+
+.js-next-button, .js-restart-button {
+    display: none ;
+	width: 200px;
+	border: 1px solid blue;
+	border-radius: 13px;
+	background-color : green;
+	font-size: 30px;
+}
+
+.reduced-title {
+    font-size: medium;
+    color: rgba(245, 245, 245, 0.548);
+}
+
+.big-box {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px white;
+    border-radius: 13px;
+    background-color: rgba(0, 122, 153, 0.452);
+    color: aliceblue;
+}

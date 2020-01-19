@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia App</title>
+    <!-- reset -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+
+
+    <div class="big-box">
+
+        <header role="banner">
+            <h1 class="main-title">Trivia 2020!</h1>
+            <ul class="js-scoreboard hidden"> <!---Score and Question# ICONS -->
+                <li>Score: <span class="score-display">0</span>/5</li>
+                <li>Question#: <span class="question-number-display">1</span>/5</li>
+            </ul>
+        </header>
+    
+        <main role="main">
+            <div class="js-quiz-start-container">
+                <h3 class="quiz-start-question">Welcome to Trivia2020! Are you ready to test your random trivia of life?????</h3>
+                <button type="button" class="js-start-button">LET'S GO!</button>
+            </div>
+            
+            <div class="js-question-answer-form"></div>  <!----------------THIS IS WHERE THE QUESTIONS WILL BE INSERTED-->
+            
+            <nav role="navigation">
+                <button type="button" class="js-next-button">NEXT</button> <!--This is the NEXT Button-->
+                <input class="js-restart-button" type="button" value="TRY AGAIN??" onClick="location.href=location.href"> <!--Try again button-->
+            </nav>
+    
+        </main>
+
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="STORE.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
