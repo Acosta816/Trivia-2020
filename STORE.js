@@ -60,8 +60,6 @@ const STORE = [
         icon2: 'TriviaFiles/Video/Mario/mario-64-death-poison.gif',
         type: 'audio',
         audio: 'TriviaFiles/Audio/TonyHawk/tony-hawk-special.wav',
-        audio2: '',
-        audio3: '',
         alt: 'icon description i guess',
         mystery: 'images/static-tv-2.gif',
         answerHTML: (userInput,qNumber)=> {
@@ -83,9 +81,6 @@ const STORE = [
         icon: 'TriviaFiles/Video/Zelda/zelda-young-link-shoe-tap.webp',
         icon2: 'images/snes-controller.gif',
         type: 'word',
-        audio: '',
-        audio2: '',
-        audio3: '',
         alt: 'icon description i guess',
         mystery: 'TriviaFiles/Video/Zelda/zelda-bombchu-bowling.gif',
         answerHTML: (userInput,qNumber)=> {
@@ -98,6 +93,32 @@ const STORE = [
                 return `<img width="100%" src="${STORE[qNumber].icon2}" />
                         <h1>WRONG!</h1>
                         <h4>😁play some more games, friend🕹️</h4>`
+            }
+        }
+    },
+    {
+        question: `Which Simpsons Character was canonically named "Homer's Enemy"?`,
+        answers: ['Ned Flanders', 'Sideshow Bob', 'Frank Grimes', 'Mr.Burns'],
+        correctAnswer: 'Frank Grimes',
+        icon: 'TriviaFiles/Video/Simpsons/frank-grimes-2.gif',
+        icon2: 'TriviaFiles/Video/Simpsons/homer-way-off.gif',
+        icon3: 'TriviaFiles/Video/Simpsons/homer-enemy-tombstone.png',
+        type: 'word',
+        audio: '',
+        audio2: '',
+        audio3: '',
+        alt: 'icon description i guess',
+        mystery: 'TriviaFiles/Video/Simpsons/homer-enemies.gif',
+        answerHTML: (userInput,qNumber)=> {
+
+            if(userInput === STORE[qNumber].correctAnswer){
+                score ++;
+                return `<img width="100%" src="${STORE[qNumber].icon}" />
+                        <img width="100%" src="${STORE[qNumber].icon3}" />
+                        <h1>Good Job</h1>`
+            } else {
+                return `<img width="100%" src="${STORE[qNumber].icon2}" />
+                        <h1>WRONG!</h1>`
             }
         }
     }

@@ -49,7 +49,7 @@ function displayFeedback(userChoice) {
     //                     <p>correct answer: ${correct}</p>
     //                   </div>`
     // }
-    $('.js-next-button').show(); //unhide the NEXT button (this will still run regardless so be careful with this line)
+    $('.js-next-button').show(); //unhide the NEXT button
     return answerView; 
 }
 
