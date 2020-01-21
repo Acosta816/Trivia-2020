@@ -123,3 +123,13 @@ const STORE = [
         }
     }
 ]
+
+
+
+
+
+
+const resultsImages = [
+    {win: `images/pencil-pusher.jpg`},
+    {lose: `images/phineas-pherb-random-emblem.jpg`},
+]
