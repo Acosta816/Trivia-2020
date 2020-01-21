@@ -16,24 +16,28 @@ function renderQuestion(){
 }
 
 function renderResults(userScore){
+    let finalScoreHTML = "";
     if(userScore <= (STORE.length/2) ){
-        return `<div>
+        finalScoreHTML= `<div>
                     <h1>RESULTS</h1>
+                    <h2>rank: "PENCIL PUSHER"👉✎</h2>
                     <h3>SCORE: ${userScore}/${STORE.length}</h3>
                     <p>(Check your heartbeat friend, you're not living!)</p>
                     <h4>Looks like you need to pracrtice Random Life-ing more often.</h4>
-                    <img width="300px" src="${resultsImages.lose}">
+                    <img width="300px" src="images/pencil-pusher.jpg">
                     <p>example:...join the army, or a book club</p>
                 </div>`
     } else {
-        return `<div>
+        finalScoreHTML = `<div>
                     <h1>RESULTS</h1>
+                    <h2>rank: 💣"LOOSE CANNON"💥</h2>
                     <h3>SCORE: ${userScore}/${STORE.length}</h3>
                     <h4>🎊Whoaahh, Your as Random as they get!🥳</h4>
-                    <img width="300px" src="${resultsImages.win}">
+                    <img width="300px" src="images/pencil-pusher.jpg">
                     <p>Let's see how long you live! 😀</p>
                 </div>`
     }
+    return finalScoreHTML;
 }
 
 function nextQuestion(){
@@ -204,7 +208,6 @@ function generateQuestion(){
         }
 
     } else {
-        console.log('replace this with ..."renderResults()" ')
         return renderResults(score);
     }
 
